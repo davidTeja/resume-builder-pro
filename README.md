@@ -1,16 +1,84 @@
-# React + Vite
+# Resume Builder Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Resume Builder Pro is a modern resume creation platform built using React and Vite. The project focuses on creating a clean and scalable frontend architecture while providing a smooth user experience for building professional resumes.
 
-Currently, two official plugins are available:
+The application allows users to select templates, fill in resume details through a multi-step form workflow, preview resumes in real time, and export them as PDF files.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is being developed as a frontend-focused capstone project with production-grade engineering practices in mind.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+* Multi-step resume creation workflow
+* Dynamic resume preview
+* PDF export functionality
+* Form validation using React Hook Form + Zod
+* Global state management using Redux Toolkit
+* Responsive UI using Material UI
+* Reusable component architecture
+* Template-based resume rendering
+* Local storage persistence (planned)
+* AI-assisted resume enhancements (planned)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* React Router DOM
+* Redux Toolkit
+* React Hook Form
+* Zod
+* Material UI
+* jsPDF
+* html2canvas
+
+
+The project follows a scalable feature-based architecture to keep business logic, UI components, and services properly separated.
+
+---
+
+## Current Development Status
+
+The project is currently under active development.
+
+
+
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/davidTeja/resume-builder-pro.git
+```
+
+### Navigate into the project
+
+```bash
+cd resume-builder-pro
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+---
+
+
+
+
+## License
+
+This project is open source and available under the MIT License.
