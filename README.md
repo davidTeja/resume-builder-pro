@@ -11,15 +11,13 @@ This project is being developed as a frontend-focused capstone project with prod
 ## Features
 
 * Multi-step resume creation workflow
-* Dynamic resume preview
+* Resume template selection
+* Live dynamic resume preview
 * PDF export functionality
 * Form validation using React Hook Form + Zod
 * Global state management using Redux Toolkit
 * Responsive UI using Material UI
 * Reusable component architecture
-* Template-based resume rendering
-* Local storage persistence (planned)
-* AI-assisted resume enhancements (planned)
 
 ---
 
@@ -41,11 +39,6 @@ This project is being developed as a frontend-focused capstone project with prod
 The project follows a scalable feature-based architecture to keep business logic, UI components, and services properly separated.
 
 ---
-
-## Current Development Status
-
-The project is currently under active development.
-
 
 
 ## Getting Started
@@ -76,7 +69,11 @@ npm run dev
 
 ---
 
+## Current Development Status
 
+The project is currently under active development.
+
+---
 
 
 ## License

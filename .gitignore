@@ -25,3 +25,6 @@ dist-ssr
 
 # ENV files
 *.env
+
+# personal
+learnings.txt
