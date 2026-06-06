@@ -41,17 +41,24 @@ const theme = createTheme({
         }
     },
     typography: {
-
-    },
-    spacing: {
-
-    },
-    breakpoints: {
-
+        fontFamily: "'Inter', sans-serif",
+        h1: {
+            fontWeight: 800,
+        },
+        h2: {
+            fontWeight: 700,
+        },
+        h3: {
+            fontWeight: 600,
+        },
+        // button: {
+        //      fontWeight: 600,
+        //      textTransform: "none",
+        // },
     },
     shape: {
-
-    };
+          borderRadius: 16,
+    },
 });
 
 export default theme;
