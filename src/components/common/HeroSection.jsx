@@ -1,16 +1,10 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 
 import { NavLink } from "react-router-dom";
 
 import { designTokens } from "../../styles/designTokens";
 
+import heroImage from "../../assets/hero3.png";
 // import heroImage from "../../assets/hero.png";
 
 const HeroSection = () => {
@@ -31,11 +25,7 @@ const HeroSection = () => {
           py: { xs: 6, md: 10 },
         }}
       >
-        <Grid
-          container
-          spacing={4}
-          alignItems="center"
-        >
+        <Grid container spacing={4} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="h2"
@@ -56,15 +46,11 @@ const HeroSection = () => {
                 fontWeight: 400,
               }}
             >
-              Build ATS-friendly resumes using modern
-              templates, real-time preview, and instant PDF
-              downloads.
+              Build ATS-friendly resumes using modern templates, real-time
+              preview, and instant PDF downloads.
             </Typography>
 
-            <Stack
-              direction="row"
-              spacing={2}
-            >
+            <Stack direction="row" spacing={2}>
               <Button
                 variant="contained"
                 component={NavLink}
@@ -80,19 +66,31 @@ const HeroSection = () => {
               >
                 Browse Templates
               </Button>
-
-              
             </Stack>
           </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Box
-            sx={{
-                height: 400,
-                bgcolor: "rgba(255,255,255,0.1)",
-                borderRadius: 4,
-            }}
-            />
-        </Grid>
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Box
+                component="img"
+                src={heroImage}
+                alt="Hero"
+                sx={{
+                  width: "100%",
+                  maxWidth: "100%",
+                  height: "auto",
+                  display: "block",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+          </Grid>
         </Grid>
       </Box>
     </Container>

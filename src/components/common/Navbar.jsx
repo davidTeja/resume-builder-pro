@@ -92,8 +92,7 @@ const Navbar = () => {
             to="/templates"
             sx={{
               px: 3,
-                py: 1,
-              
+              py: 1,
               textTransform: "none",
             }}
           >
