@@ -22,10 +22,10 @@ const HeroSection = () => {
           borderRadius: "32px",
           overflow: "hidden",
           px: { xs: 3, md: 8 },
-          py: { xs: 6, md: 10 },
+          py: { xs: 6, md: 8 },
         }}
       >
-        <Grid container spacing={4} alignItems="center">
+        <Grid container spacing={3} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               variant="h2"
@@ -72,7 +72,7 @@ const HeroSection = () => {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: { xs: "flex-start", md: "flex-end" },
                 alignItems: "center",
                 width: "100%",
               }}
@@ -82,11 +82,12 @@ const HeroSection = () => {
                 src={heroImage}
                 alt="Hero"
                 sx={{
-                  width: "100%",
-                  maxWidth: "100%",
+                  width: { xs: "100%", sm: "75%", md: "120%" },
                   height: "auto",
                   display: "block",
                   objectFit: "contain",
+                  // mr: { md: 0 },
+                  ml: { xs: -5, sm: -7, md: -8 },
                 }}
               />
             </Box>

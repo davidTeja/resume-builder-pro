@@ -22,6 +22,9 @@ const Navbar = () => {
     <Container
       maxWidth={false}
       sx={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1100,
         maxWidth: designTokens.layout.maxWidth,
         mt: 2,
       }}
@@ -63,8 +66,8 @@ const Navbar = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-                      gap: 4,
-            mx: 2,
+            gap: { xs: 2, md: 4 },
+            mx: 0.5,
           }}
         >
           {navItems.map((item) => (
@@ -76,6 +79,7 @@ const Navbar = () => {
                 textDecoration: "none",
                 color: theme.palette.text.secondary,
                 fontWeight: 500,
+                display: { xs: "none", md: "block" },
 
                 "&.active": {
                   color: theme.palette.primary.main,
@@ -91,7 +95,7 @@ const Navbar = () => {
             component={NavLink}
             to="/templates"
             sx={{
-              px: 3,
+              px: 2.5,
               py: 1,
               textTransform: "none",
             }}
