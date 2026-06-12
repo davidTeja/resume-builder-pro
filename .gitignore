@@ -37,3 +37,8 @@ src/assets/heroAlmost.png
 src/assets/heroNew.png
 src/assets/heroVite.png
 src/assets/hero_premium.png
+
+
+# Testing Hero Sections  
+src/components/common/HeroSectionSwitcher.jsx
+src/components/common/HeroSectionV2.jsx
