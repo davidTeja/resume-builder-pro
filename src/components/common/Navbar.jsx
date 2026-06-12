@@ -42,7 +42,8 @@ const Navbar = () => {
 
           borderRadius: "20px",
 
-          boxShadow: designTokens.shadows.navbar,
+
+          boxShadow: designTokens.shadows.navbar2,
         })}
       >
         {/* Logo */}
@@ -98,6 +99,10 @@ const Navbar = () => {
               px: 2.5,
               py: 1,
               textTransform: "none",
+              "&:hover": {
+                transition: "all 0.2s ease-in-out",
+                transform: "translateY(-2px)",
+              }
             }}
           >
             Get Started
