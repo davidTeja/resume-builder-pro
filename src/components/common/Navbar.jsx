@@ -12,22 +12,14 @@ import { designTokens } from "../../styles/designTokens.js";
 import { useState } from "react";
 
 const navItems = [
-  {
-    label: "Templates",
-    path: "/templates",
-  },
-  {
-    label: "My Resumes",
-    path: "/my-resumes",
-  },
-  {
-    label: "About",
-    path: "/about",
-  },
+  { label: "Templates", path: "/templates" },
+  { label: "My Resumes", path: "/my-resumes" },
+  { label: "About", path: "/about" },
 ];
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <Container
       maxWidth={false}
@@ -41,60 +33,51 @@ const Navbar = () => {
     >
       <Box
         sx={(theme) => ({
-          // keep relative so we can absolutely position the logo on small screens
-          position: "relative",
           display: "flex",
           alignItems: "center",
-          // center content on xs (so the menu icon appears centered), keep space-between on md+
-          justifyContent: { xs: "center", md: "space-between" },
-
+          justifyContent: "space-between",
           backgroundColor: theme.palette.background.paper,
-
-          px: { xs: 1.5, sm: 3, md: 4 },
+          px: { xs: 2, sm: 3, md: 4 },
           py: 2,
-          borderRadius: "20px",
+          borderRadius: `${theme.shape.borderRadius}px`,
           boxShadow: designTokens.shadows.navbar2,
         })}
       >
-        {/* Logo */}
-
+        {/* Logo - FIXED: variant changed back to a string string */}
         <Typography
           component={NavLink}
           to="/"
-          variant="h6"
+          variant="h6" //  Pulls responsive sizes directly from theme.js automatically!
           sx={(theme) => ({
             textDecoration: "none",
             color: theme.palette.text.primary,
-            fontWeight: 700,
-            // take the logo out of normal flow on small screens so the nav (menu) can be centered
-            position: { xs: "absolute", md: "static" },
-            left: { xs: 12, md: "auto" },
+            fontWeight: theme.typography.h6.fontWeight,
+            whiteSpace: "nowrap",
           })}
         >
           Resume Builder Pro
         </Typography>
 
-        {/* Navigation */}
-
+        {/* Navigation Actions Holder */}
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: { xs: 2, md: 4 },
-            mx: 0.5,
+            gap: { xs: 1.5, sm: 2, md: 4 },
           }}
         >
+          {/* Desktop Nav Links */}
           {navItems.map((item) => (
             <Typography
               key={item.path}
               component={NavLink}
               to={item.path}
+              variant="body1"
               sx={(theme) => ({
                 textDecoration: "none",
                 color: theme.palette.text.secondary,
                 fontWeight: 500,
                 display: { xs: "none", md: "block" },
-
                 "&.active": {
                   color: theme.palette.primary.main,
                 },
@@ -104,15 +87,16 @@ const Navbar = () => {
             </Typography>
           ))}
 
+          {/* CTA Button */}
           <Button
             variant="contained"
             component={NavLink}
             to="/build-resume"
+            size="medium" // FIXED: Keeping sizes predictable using simple MUI defaults
             sx={{
-              display: { xs: "none", md: "inline-flex" }, // hide on mobile so the menu icon can be centered
-              px: 2.5,
+              px: { xs: 1.5, sm: 2.5 },
               py: 1,
-              textTransform: "none",
+              whiteSpace: "nowrap",
               "&:hover": {
                 transition: "all 0.2s ease-in-out",
                 transform: "translateY(-2px)",
@@ -121,59 +105,61 @@ const Navbar = () => {
           >
             Get Started
           </Button>
+
+          {/* Burger Menu Icon */}
           <IconButton
             onClick={() => setDrawerOpen(true)}
             color="inherit"
             aria-label="menu button"
-            sx={{ display: { xs: "block", md: "none" } }}
+            sx={{
+              display: { md: "none", xs: "inline-flex" },
+              p: 0.5,
+            }}
           >
             <MenuIcon />
           </IconButton>
         </Box>
       </Box>
 
-      <Box
-        sx={{
-          display: { xs: "flex", md: "none" },
+      {/* Drawer */}
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        slotProps={{
+          paper: {
+            sx: (theme) => ({
+              width: { xs: "75%", sm: 320 },
+              p: 3,
+              backgroundColor: theme.palette.background.paper,
+            }),
+          },
         }}
       >
-        <Box sx={{ p: 2 }}>
-          <Drawer
-            anchor="right"
-            open={drawerOpen}
-            onClose={() => setDrawerOpen(false)}
-            slotProps={{
-              paper: {
-                sx: {
-                  width: { xs: "75%", sm: 320 },
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mt: 4 }}>
+          {navItems.map((item) => (
+            <Button
+              variant="text"
+              key={item.path}
+              component={NavLink}
+              to={item.path}
+              onClick={() => setDrawerOpen(false)}
+              sx={(theme) => ({
+                justifyContent: "flex-start",
+                color: theme.palette.text.secondary,
+                fontWeight: 400,
+                fontSize: theme.typography.subtitle2.fontSize,
+                "&.active": {
+                  color: theme.palette.primary.main,
+                  backgroundColor: "rgba(5, 150, 105, 0.08)", // Fallback style wrapper
                 },
-              },
-            }}
-          >
-            <Box sx={{ p: 2 }}>
-              {navItems.map((item) => (
-                <Button
-                  variant="text"
-                  key={item.path}
-                  component={NavLink}
-                  to={item.path}
-                  sx={(theme) => ({
-                    display: "block",
-                    width: "100%",
-                    textAlign: "left",
-                    color: theme.palette.text.secondary,
-                    size: "large",
-                    fontWeight: 500,
-                    mb: 1,
-                  })}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </Box>
-          </Drawer>
+              })}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Box>
-      </Box>
+      </Drawer>
     </Container>
   );
 };
