@@ -1,20 +1,13 @@
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Typography,
-  Drawer,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink } from "react-router-dom";
-import { designTokens } from "../../styles/designTokens.js";
-import { useState } from "react";
+import { Box, Button, Container, IconButton, Typography, Drawer } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink } from 'react-router-dom';
+import { designTokens } from '../../styles/designTokens.js';
+import { useState } from 'react';
 
 const navItems = [
-  { label: "Templates", path: "/templates" },
-  { label: "My Resumes", path: "/my-resumes" },
-  { label: "About", path: "/about" },
+  { label: 'Templates', path: '/templates' },
+  { label: 'My Resumes', path: '/my-resumes' },
+  { label: 'About', path: '/about' },
 ];
 
 const Navbar = () => {
@@ -24,23 +17,24 @@ const Navbar = () => {
     <Container
       maxWidth={false}
       sx={{
-        position: "sticky",
+        position: 'sticky',
         top: 0,
         zIndex: 1100,
+        mt: 1,
         maxWidth: designTokens.layout.maxWidth,
-        mt: 2,
       }}
     >
       <Box
         sx={(theme) => ({
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: theme.palette.background.paper,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderRadius: `${theme.shape.borderRadius}px`,
+          borderBottom: `2px solid ${theme.palette.divider}`,
+          backgroundColor: 'rgba(255, 255, 255, 0.87)',
+          backdropFilter: 'blur(5px)',
           px: { xs: 2, sm: 3, md: 4 },
           py: 2,
-          borderRadius: `${theme.shape.borderRadius}px`,
-          boxShadow: designTokens.shadows.navbar2,
         })}
       >
         {/* Logo - FIXED: variant changed back to a string string */}
@@ -49,10 +43,10 @@ const Navbar = () => {
           to="/"
           variant="h6" //  Pulls responsive sizes directly from theme.js automatically!
           sx={(theme) => ({
-            textDecoration: "none",
+            textDecoration: 'none',
             color: theme.palette.text.primary,
             fontWeight: theme.typography.h6.fontWeight,
-            whiteSpace: "nowrap",
+            whiteSpace: 'nowrap',
           })}
         >
           Resume Builder Pro
@@ -61,8 +55,8 @@ const Navbar = () => {
         {/* Navigation Actions Holder */}
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             gap: { xs: 1.5, sm: 2, md: 4 },
           }}
         >
@@ -74,12 +68,17 @@ const Navbar = () => {
               to={item.path}
               variant="body1"
               sx={(theme) => ({
-                textDecoration: "none",
-                color: theme.palette.text.secondary,
+                textDecoration: 'none',
+                color: theme.palette.primary.main,
                 fontWeight: 500,
-                display: { xs: "none", md: "block" },
-                "&.active": {
-                  color: theme.palette.primary.main,
+                px: 0.5,
+                display: { xs: 'none', md: 'block' },
+                '&.active': {
+                  color: theme.palette.primary.dark,
+                },
+                '&:hover': {
+                  backgroundColor: designTokens.shadows.linkHoverShadow,
+                  borderRadius: '6px',
                 },
               })}
             >
@@ -96,10 +95,12 @@ const Navbar = () => {
             sx={{
               px: { xs: 1.5, sm: 2.5 },
               py: 1,
-              whiteSpace: "nowrap",
-              "&:hover": {
-                transition: "all 0.2s ease-in-out",
-                transform: "translateY(-2px)",
+              whiteSpace: 'nowrap',
+              background: designTokens.gradients.heroV2.ctaPrimary,
+              '&:hover': {
+                transition: 'all 0.2s ease-in-out',
+                background: designTokens.gradients.heroV2.ctaPrimaryHover,
+                transform: 'translateY(-2px)',
               },
             }}
           >
@@ -112,7 +113,7 @@ const Navbar = () => {
             color="inherit"
             aria-label="menu button"
             sx={{
-              display: { md: "none", xs: "inline-flex" },
+              display: { md: 'none', xs: 'inline-flex' },
               p: 0.5,
             }}
           >
@@ -129,14 +130,14 @@ const Navbar = () => {
         slotProps={{
           paper: {
             sx: (theme) => ({
-              width: { xs: "75%", sm: 320 },
+              width: { xs: '75%', sm: 320 },
               p: 3,
               backgroundColor: theme.palette.background.paper,
             }),
           },
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mt: 4 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: 4 }}>
           {navItems.map((item) => (
             <Button
               variant="text"
@@ -145,13 +146,13 @@ const Navbar = () => {
               to={item.path}
               onClick={() => setDrawerOpen(false)}
               sx={(theme) => ({
-                justifyContent: "flex-start",
-                color: theme.palette.text.secondary,
+                justifyContent: 'flex-start',
+                color: theme.palette.primary.main,
                 fontWeight: 400,
                 fontSize: theme.typography.subtitle2.fontSize,
-                "&.active": {
+                '&.active': {
                   color: theme.palette.primary.main,
-                  backgroundColor: "rgba(5, 150, 105, 0.08)", // Fallback style wrapper
+                  backgroundColor: 'rgba(5, 150, 105, 0.08)', // Fallback style wrapper
                 },
               })}
             >
