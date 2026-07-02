@@ -1,11 +1,10 @@
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
 
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-import { designTokens } from "../../styles/designTokens";
-import heroImage from "../../assets/hero3.png";
-import { ArrowOutwardOutlined } from "@mui/icons-material";
-
+import { designTokens } from '../../styles/designTokens';
+import heroImage from '../../assets/hero_latest.png';
+import { ArrowOutwardOutlined } from '@mui/icons-material';
 
 const HeroSection = () => {
   return (
@@ -20,7 +19,7 @@ const HeroSection = () => {
         sx={(theme) => ({
           background: designTokens.gradients.hero,
           borderRadius: `${theme.shape.borderRadius * 2}px`,
-          overflow: "hidden",
+          overflow: 'hidden',
           px: { xs: 3, md: 8 },
           py: { xs: 6, md: 8 },
           boxShadow: designTokens.shadows.heroBox,
@@ -42,13 +41,13 @@ const HeroSection = () => {
             <Typography
               variant="h6"
               sx={{
-                color: "rgba(255,255,255,0.9)",
+                color: 'rgba(255,255,255,0.9)',
                 mb: 4,
                 fontWeight: 400,
               }}
             >
-              Build ATS-friendly resumes using modern templates, real-time
-              preview, and instant PDF downloads.
+              Build ATS-friendly resumes using modern templates, real-time preview, and instant PDF
+              downloads.
             </Typography>
 
             <Stack direction="row" spacing={2}>
@@ -64,26 +63,26 @@ const HeroSection = () => {
                   py: { xs: 1 },
                   bgcolor: theme.palette.background.default,
                   color: theme.palette.primary.main,
-                  transition: "all 0.25s ease-in-out",
+                  transition: 'all 0.25s ease-in-out',
 
                   // Hide the icon at rest
-                  "& .MuiButton-endIcon": {
+                  '& .MuiButton-endIcon': {
                     opacity: 0,
                     maxWidth: 0,
-                    overflow: "hidden",
-                    transition: "opacity 0.2s ease, max-width 0.25s ease",
+                    overflow: 'hidden',
+                    transition: 'opacity 0.2s ease, max-width 0.25s ease',
                     ml: 0,
                   },
 
-                  "&:hover": {
+                  '&:hover': {
                     background: theme.palette.secondary.light,
                     color: theme.palette.background.paper,
-                    transform: "translateY(-2px)",
+                    transform: 'translateY(-2px)',
 
                     // Reveal the icon on hover
-                    "& .MuiButton-endIcon": {
+                    '& .MuiButton-endIcon': {
                       opacity: 1,
-                      maxWidth: "24px",
+                      maxWidth: '24px',
                       ml: 0.75,
                     },
                   },
@@ -93,16 +92,13 @@ const HeroSection = () => {
               </Button>
             </Stack>
           </Grid>
-          <Grid
-            size={{ xs: 12, sm: 5, md: 6 }}
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
+          <Grid size={{ xs: 12, sm: 5, md: 6 }} sx={{ display: { xs: 'none', sm: 'block' } }}>
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                width: "100%",
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                width: '100%',
               }}
             >
               <Box
@@ -110,18 +106,18 @@ const HeroSection = () => {
                 src={heroImage}
                 alt="Hero"
                 sx={{
-                  width: { sm: "130%", md: "120%" },
-                  height: "auto",
-                  objectFit: "contain",
-                  ml: { sm: 0, md: -4 },
-                  mr: { sm: -1 },
+                  width: { sm: '130%', md: '120%' },
+                  height: 'auto',
+                  objectFit: 'contain',
+                  ml: { sm: 0, md: 0 },
+                  mr: { sm: 0 },
                   // transition: "all 0.3s ease-in-out",
                   // "&:hover": {
                   //   transform: "translateY(-12px)",
-                  transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                  "&:hover": {
-                    transform: "scale(1.02) translateY(-4px)",
-                  }
+                  transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  '&:hover': {
+                    transform: 'scale(1.02) translateY(-4px)',
+                  },
                 }}
               />
             </Box>
@@ -131,7 +127,5 @@ const HeroSection = () => {
     </Container>
   );
 };
-
-
 
 export default HeroSection;
