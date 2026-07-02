@@ -12,18 +12,60 @@ const HeroSection = () => {
       maxWidth={false}
       sx={{
         maxWidth: designTokens.layout.maxWidth,
-        mt: 4,
+        mt: 3,
+        position: 'relative',
       }}
     >
+      {/* Background Blobs forming an arc from mid-right to bottom-middle */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '20%',
+          right: '-10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(124, 58, 237, 0.5) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '-15%',
+          right: '10%',
+          width: '500px',
+          height: '00px',
+          background: 'radial-gradient(circle, rgba(63, 213, 240, 0.73) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '20%',
+          left: '-10%',
+          width: '450px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(82, 214, 115, 0.57) 0%, transparent 70%)',
+          filter: 'blur(70px)',
+          zIndex: 0,
+        }}
+      />
+
       <Box
         sx={(theme) => ({
-          background: designTokens.gradients.hero,
-          borderRadius: `${theme.shape.borderRadius * 2}px`,
+          position: 'relative',
+          zIndex: 1,
+          backgroundColor: 'rgba(255, 255, 255, 0.64)',
+          backdropFilter: 'blur(50px)',
+          border: '1px solid rgba(236, 228, 255, 0.45)',
+          borderRadius: `${theme.shape.borderRadius}px`,
           overflow: 'hidden',
           px: { xs: 3, md: 8 },
           py: { xs: 6, md: 8 },
-          boxShadow: designTokens.shadows.heroBox,
-          zIndex: 1000,
+          // boxShadow: designTokens.shadows.heroBox,
         })}
       >
         <Grid container spacing={3} alignItems="center">
@@ -31,17 +73,29 @@ const HeroSection = () => {
             <Typography
               variant="h2"
               sx={(theme) => ({
-                color: theme.palette.background.paper,
+                color: theme.palette.text.secondary,
                 mb: 2,
+                fontWeight: 600,
               })}
             >
-              Create Professional Resumes in Minutes
+              Create{' '}
+              <Box
+                component="span"
+                sx={{
+                  background: designTokens.gradients.heroV2.headlineText,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Professional Resumes
+              </Box>{' '}
+              in Minutes
             </Typography>
 
             <Typography
               variant="h6"
               sx={{
-                color: 'rgba(255,255,255,0.9)',
+                color: 'text.secondary',
                 mb: 4,
                 fontWeight: 400,
               }}
@@ -56,13 +110,13 @@ const HeroSection = () => {
                 component={NavLink}
                 to="/templates"
                 endIcon={<ArrowOutwardOutlined />}
-                sx={(theme) => ({
+                sx={{
                   flexGrow: { xs: 1, sm: 0 },
                   fontWeight: 700,
                   lineHeight: 1.8,
                   py: { xs: 1 },
-                  bgcolor: theme.palette.background.default,
-                  color: theme.palette.primary.main,
+                  background: designTokens.gradients.heroV2.ctaPrimary,
+                  color: '#fff',
                   transition: 'all 0.25s ease-in-out',
 
                   // Hide the icon at rest
@@ -75,8 +129,7 @@ const HeroSection = () => {
                   },
 
                   '&:hover': {
-                    background: theme.palette.secondary.light,
-                    color: theme.palette.background.paper,
+                    background: designTokens.gradients.heroV2.ctaPrimaryHover,
                     transform: 'translateY(-2px)',
 
                     // Reveal the icon on hover
@@ -86,19 +139,20 @@ const HeroSection = () => {
                       ml: 0.75,
                     },
                   },
-                })}
+                }}
               >
                 Browse Templates
               </Button>
             </Stack>
           </Grid>
-          <Grid size={{ xs: 12, sm: 5, md: 6 }} sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Grid size={{ xs: 12, sm: 5, md: 6 }} sx={{ display: { xs: 'block' } }}>
             <Box
               sx={{
                 display: 'flex',
-                justifyContent: 'flex-end',
+                justifyContent: 'center',
                 alignItems: 'center',
                 width: '100%',
+                height: '100%',
               }}
             >
               <Box
@@ -106,14 +160,10 @@ const HeroSection = () => {
                 src={heroImage}
                 alt="Hero"
                 sx={{
-                  width: { sm: '130%', md: '120%' },
+                  width: '100%',
+                  maxWidth: { sm: '100%', md: '90%', lg: '100%' },
                   height: 'auto',
                   objectFit: 'contain',
-                  ml: { sm: 0, md: 0 },
-                  mr: { sm: 0 },
-                  // transition: "all 0.3s ease-in-out",
-                  // "&:hover": {
-                  //   transform: "translateY(-12px)",
                   transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                   '&:hover': {
                     transform: 'scale(1.02) translateY(-4px)',
