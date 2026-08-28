@@ -32,12 +32,24 @@ const HeroSection = () => {
       <Box
         sx={{
           position: 'absolute',
-          bottom: '-15%',
-          right: '10%',
+          bottom: '-5%',
+          right: '40%',
           width: '500px',
-          height: '00px',
-          background: 'radial-gradient(circle, rgba(63, 213, 240, 0.73) 0%, transparent 70%)',
-          filter: 'blur(80px)',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(74, 250, 232, 0.4) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '-15%',
+          left: '40%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(63, 213, 240, 0.45) 0%, transparent 70%)',
+          filter: 'blur(40px)',
           zIndex: 0,
         }}
       />
