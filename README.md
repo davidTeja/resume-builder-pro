@@ -81,6 +81,15 @@ npm run dev
 
 ---
 
+## Available Scripts
+
+* `npm run dev` starts the Vite development server
+* `npm run build` creates a production build
+* `npm run lint` checks the codebase with ESLint
+* `npm run preview` serves the production build locally
+
+---
+
 ## Current Development Status
 
 The project is currently under active development.
