@@ -35,6 +35,18 @@ This project is being developed as a frontend-focused capstone project with prod
 * jsPDF
 * html2canvas
 
+---
+
+## Project Structure
+
+The source code is organized by responsibility and feature:
+
+* `src/pages` contains route-level screens
+* `src/features` contains resume, form, template, and preview functionality
+* `src/components` contains shared UI and layout components
+* `src/app` contains application providers and the Redux store
+* `src/services` contains API and resume-related services
+* `src/styles` contains the theme and reusable styling utilities
 
 The project follows a scalable feature-based architecture to keep business logic, UI components, and services properly separated.
 
